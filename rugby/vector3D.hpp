@@ -57,6 +57,5 @@ float vector3D::angleBetween(vector3D v)
     float magnitude1 = calcMagnitude();
     float magnitude2 = v.calcMagnitude();
     float cos0 = dp/magnitude1/magnitude2;
-    std::cout<<repr()<<" . "<<v.repr()<<" = "<<dp<<std::endl;
     return acos(cos0);
 }

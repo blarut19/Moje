@@ -9,7 +9,6 @@
 
 int last_frame = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 int framerate = 60;
-const int WIDTH = 800, HEIGHT = 600;
 
 class Game
 {
@@ -87,6 +86,7 @@ void Game::update()
 void Game::render()
 {
     //############################# BAD PRACTICE, JUST TESTING
+    int WIDTH = 800, HEIGHT = 600;
     point3D post1(WIDTH/2 + 10, 50, 0);
     point3D post2(WIDTH/2 - 10, 50, 0);
     for (int x = 0; x < WIDTH; x++)
