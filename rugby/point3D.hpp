@@ -5,17 +5,17 @@
 class point3D
 {
 private:
-    float x;
-    float y;
-    float z;
+    double x;
+    double y;
+    double z;
 public:
-    point3D(float x_pos, float y_pos, float z_pos) {x = x_pos; y = y_pos; z = z_pos;}
+    point3D(double x_pos, double y_pos, double z_pos) {x = x_pos; y = y_pos; z = z_pos;}
     point3D() {}
     ~point3D() {}
-    float getX() {return x;}
-    float getY() {return y;}
-    float getZ() {return z;}
-    void setX(float x_pos) {x = x_pos;}
-    void setY(float y_pos) {y = y_pos;}
-    void setZ(float z_pos) {z = z_pos;}
+    double getX() {return x;}
+    double getY() {return y;}
+    double getZ() {return z;}
+    void setX(double x_pos) {x = x_pos;}
+    void setY(double y_pos) {y = y_pos;}
+    void setZ(double z_pos) {z = z_pos;}
 };
