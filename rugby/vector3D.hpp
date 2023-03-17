@@ -13,7 +13,7 @@ private:
 public:
     vector3D() {}
     vector3D(float x_pos, float y_pos, float z_pos) {x = x_pos; y = y_pos; z = z_pos;}
-    vector3D(point3D p1, point3D p2) {x = p1.getX() - p2.getX(); y = p1.getY() - p2.getY(); z = p1.getZ() - p2.getZ();}
+    vector3D(point3D p1, point3D p2) {x = p2.getX() - p1.getX(); y = p2.getY() - p1.getY(); z = p2.getZ() - p1.getZ();}
     ~vector3D() {};
     float getX() {return x;}
     float getY() {return y;}
@@ -56,6 +56,11 @@ float vector3D::angleBetween(vector3D v)
     float dp = dotProduct(v);
     float magnitude1 = calcMagnitude();
     float magnitude2 = v.calcMagnitude();
+    if (magnitude1 == 0 || magnitude2 == 0)
+    {
+        return 0;
+    }
+    
     float cos0 = dp/magnitude1/magnitude2;
     return acos(cos0);
 }

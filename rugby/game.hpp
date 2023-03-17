@@ -85,24 +85,28 @@ void Game::update()
 }
 void Game::render()
 {
+    SDL_RenderClear(renderer);
     //############################# BAD PRACTICE, JUST TESTING
-    int WIDTH = 800, HEIGHT = 600;
-    point3D post1(WIDTH/2 + 10, 50, 0);
-    point3D post2(WIDTH/2 - 10, 50, 0);
+    int WIDTH = 800, HEIGHT = 600, CROSSBAR_WIDTH = 50, POST_HEIGHT = 3, TOTAL_HEIGHT = 13;
+    point3D postRDcorner(WIDTH/2+CROSSBAR_WIDTH/2, 0, POST_HEIGHT);
+    point3D postLDcorner(WIDTH/2-CROSSBAR_WIDTH/2, 0, POST_HEIGHT);
+    point3D postRUcorner(WIDTH/2+CROSSBAR_WIDTH/2, 0, TOTAL_HEIGHT);
+    point3D postLUcorner(WIDTH/2-CROSSBAR_WIDTH/2, 0, TOTAL_HEIGHT);
     for (int x = 0; x < WIDTH; x++)
     {
         for (int y = 0; y < HEIGHT; y++)
         {
             point3D p(x, y, 0);
-            vector3D v1(p, post1);
-            vector3D v2(p, post2);
-            float angle = v1.angleBetween(v2);
+            vector3D vRD(p, postRDcorner);
+            vector3D vLD(p, postLDcorner);
+            vector3D vRU(p, postRUcorner);
+            vector3D vLU(p, postRDcorner);
+            float angle = vRD.angleBetween(vLD);
             int color = angle*81;               // divide by PI and multiply by 255
             SDL_SetRenderDrawColor(renderer, color, color, color, 255);
             SDL_RenderDrawPoint(renderer, x, y);
         }
     }
-    SDL_RenderClear(renderer);
     SDL_RenderPresent(renderer);
 }
 void Game::handleEvents()

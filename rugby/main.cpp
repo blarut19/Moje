@@ -11,16 +11,12 @@ int main(int argc, char *argv[])
 
     game->init("Rugby", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, WIDTH, HEIGHT, fullscreen);
 
-    vector3D v(-5, -2, 4);
-    vector3D u(2, 3, 4);
-    std::cout<<v.angleBetween(u)<<std::endl;
     while(game->running())
     {
         game->handleEvents();
         game->update();
         game->render();
     }
-
 
     return 0;
 }
