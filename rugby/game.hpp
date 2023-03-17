@@ -5,9 +5,11 @@
 #include <ctime>
 #include <chrono>
 #include "vector3D.hpp"
+#include "field.hpp"
 
 int last_frame = std::chrono::duration_cast<std::chrono::milliseconds>(std::chrono::system_clock::now().time_since_epoch()).count();
 int framerate = 60;
+const int WIDTH = 800, HEIGHT = 600;
 
 class Game
 {
@@ -76,7 +78,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height, bo
     else
     {
         isRunning = false;
-    }
+    }   
 }
 void Game::update()
 {
@@ -84,6 +86,22 @@ void Game::update()
 }
 void Game::render()
 {
+    //############################# BAD PRACTICE, JUST TESTING
+    point3D post1(WIDTH/2 + 10, 50, 0);
+    point3D post2(WIDTH/2 - 10, 50, 0);
+    for (int x = 0; x < WIDTH; x++)
+    {
+        for (int y = 0; y < HEIGHT; y++)
+        {
+            point3D p(x, y, 0);
+            vector3D v1(p, post1);
+            vector3D v2(p, post2);
+            float angle = v1.angleBetween(v2);
+            int color = angle*81;               // divide by PI and multiply by 255
+            SDL_SetRenderDrawColor(renderer, color, color, color, 255);
+            SDL_RenderDrawPoint(renderer, x, y);
+        }
+    }
     SDL_RenderClear(renderer);
     SDL_RenderPresent(renderer);
 }
