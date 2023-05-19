@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Błażej Rutkowski</title>
+    <link rel="stylesheet" href="CSS_BR\style_BR.css"></style>
+    <script src="JS_BR\skrypt_BR.js"></script>
+</head>
+<body onload="start()">
+    <header>
+        <h1>Kalkulator z pamięcią</h1> 
+        <br>
+    </header>
+    <section id="calculator_section">
+        <h2>
+            Kalkulator
+        </h2>
+        <input type="number" id="n1" size="5">
+        <select name="operators" id="used_operators"></select>
+        <input type="number" id="n2" size="5">
+        <input type="button" value="=" id="calculate" onclick="calculate()">
+        <input type="number" id="result" size="5" readonly>
+    </section>
+    <section id="operator_manipulation_section">
+        <h2>
+            Zmień operatory
+            <br>
+        </h2>
+        Dodaj operator
+        <select name="unused_operators" id="unused_operators"></select>
+        <input type="button" value="Dodaj" id="add_operator" onclick="add_operator()">
+        <br>Usuń operator
+        <!-- <select name="used_operators" id="used_operators"></select>-->
+        <p id = "c_op"></p>
+        <input type="button" value="Usuń" id="remove_operator" onclick="remove_operator()">
+    </section>
+    <section id="memory_section">
+        <h2>
+            Historia działań
+        </h2>
+        <p id="history"></p>
+    </section>
+    <br>
+    <br>
+    <input type="button" value="kalkulator" id="calculator_button" onclick="show_calculator()">
+    <input type="button" value="operatory" id="operators_button" onclick="show_operators()">
+    <input type="button" value="historia" id="history_button" onclick="show_history()">
+    <br>
+    <p id="debug"></p>
+    <footer>
+        Błażej Rutkowski 2022
+    </footer>
+</body>
+</html>
