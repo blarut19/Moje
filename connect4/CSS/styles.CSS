@@ -1,0 +1,12 @@
+:root{
+    color-scheme: dark;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+table, th, td
+{
+    margin: auto;
+    text-align: center;
+    border: 1px solid;
+    border-collapse: collapse;
+}
